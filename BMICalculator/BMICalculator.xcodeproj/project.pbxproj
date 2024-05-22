@@ -13,7 +13,6 @@
 		FEA2EF572BFC8EEC009E27FA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FEA2EF562BFC8EEC009E27FA /* Base */; };
 		FEA2EF592BFC8EEC009E27FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEA2EF582BFC8EEC009E27FA /* Assets.xcassets */; };
 		FEA2EF5C2BFC8EEC009E27FA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FEA2EF5B2BFC8EEC009E27FA /* Base */; };
-		FEA2EF642BFC94EB009E27FA /* BMICheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA2EF632BFC94EB009E27FA /* BMICheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		FEA2EF582BFC8EEC009E27FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEA2EF5B2BFC8EEC009E27FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEA2EF5D2BFC8EEC009E27FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FEA2EF632BFC94EB009E27FA /* BMICheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				FEA2EF582BFC8EEC009E27FA /* Assets.xcassets */,
 				FEA2EF5A2BFC8EEC009E27FA /* LaunchScreen.storyboard */,
 				FEA2EF5D2BFC8EEC009E27FA /* Info.plist */,
-				FEA2EF632BFC94EB009E27FA /* BMICheckViewController.swift */,
 			);
 			path = BMICalculator;
 			sourceTree = "<group>";
@@ -141,7 +138,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEA2EF642BFC94EB009E27FA /* BMICheckViewController.swift in Sources */,
 				FEA2EF542BFC8EEC009E27FA /* ViewController.swift in Sources */,
 				FEA2EF502BFC8EEC009E27FA /* AppDelegate.swift in Sources */,
 				FEA2EF522BFC8EEC009E27FA /* SceneDelegate.swift in Sources */,

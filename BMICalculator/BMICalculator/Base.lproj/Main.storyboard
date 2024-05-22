@@ -96,14 +96,53 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDS-B0-elG">
-                                <rect key="frame" x="20" y="694" width="379" height="45"/>
+                                <rect key="frame" x="20" y="667" width="379" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="ony-4k-I0k"/>
+                                    <constraint firstAttribute="height" constant="60" id="Yum-LS-m5S"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="resultButtonTapped:" destination="wFh-4U-oge" eventType="touchUpInside" id="BJW-pg-N8y"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0m-DLJ">
+                                <rect key="frame" x="20" y="306" width="178" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8kE-UY-hc8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nicknameTextFieldEditingDidEnd:" destination="wFh-4U-oge" eventType="editingDidEnd" id="EK9-a0-sbN"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-BS-Ctu">
+                                <rect key="frame" x="46" y="277" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-yF-Oob">
+                                <rect key="frame" x="221" y="744" width="178" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="fVU-Gs-qvp"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="removeRecentresultButtonTapped:" destination="wFh-4U-oge" eventType="touchUpInside" id="AH8-NS-DlE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORA-2M-eSZ">
+                                <rect key="frame" x="20" y="744" width="178" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="xCC-lw-qbp"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="recentresultButtonTapped:" destination="wFh-4U-oge" eventType="touchUpInside" id="JSZ-4q-kdi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -112,37 +151,53 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="aiQ-Md-uQp" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="0nL-RJ-6lE"/>
+                            <constraint firstItem="q0g-0m-DLJ" firstAttribute="top" secondItem="g3b-BS-Ctu" secondAttribute="bottom" constant="8" symbolic="YES" id="19V-cO-8bK"/>
                             <constraint firstItem="qJH-cA-Rbg" firstAttribute="top" secondItem="nNe-lB-vek" secondAttribute="bottom" constant="15" id="1L9-H6-HPJ"/>
                             <constraint firstItem="aiQ-Md-uQp" firstAttribute="top" secondItem="VFe-pB-JYB" secondAttribute="top" constant="59" id="45Q-na-ZaR"/>
                             <constraint firstItem="kwf-A5-b4O" firstAttribute="top" secondItem="VFe-pB-JYB" secondAttribute="top" constant="50" id="5Nh-ZC-s6i"/>
+                            <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="jn7-yF-Oob" secondAttribute="trailing" constant="31" id="BcM-Q3-ktY"/>
                             <constraint firstItem="gTE-Mt-H90" firstAttribute="top" secondItem="aiQ-Md-uQp" secondAttribute="bottom" constant="167" id="Fr7-Uj-pKY"/>
                             <constraint firstItem="nNe-lB-vek" firstAttribute="top" secondItem="Rgr-iO-bjy" secondAttribute="bottom" constant="8" symbolic="YES" id="I13-fB-dSe"/>
-                            <constraint firstItem="GDS-B0-elG" firstAttribute="top" secondItem="qJH-cA-Rbg" secondAttribute="bottom" constant="61" id="Ix6-BN-j0A"/>
                             <constraint firstItem="gTE-Mt-H90" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="46" id="J8D-jT-rXB"/>
+                            <constraint firstItem="q0g-0m-DLJ" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="M9K-AG-oIq"/>
                             <constraint firstItem="nNe-lB-vek" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="MVi-o3-KTn"/>
                             <constraint firstItem="Rgr-iO-bjy" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="46" id="MyV-BD-axi"/>
                             <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="qJH-cA-Rbg" secondAttribute="trailing" constant="31" id="OQP-m4-4hA"/>
                             <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="nNe-lB-vek" secondAttribute="trailing" constant="31" id="PUV-Pl-fWL"/>
+                            <constraint firstItem="g3b-BS-Ctu" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="46" id="Qbw-fu-2xV"/>
+                            <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="GDS-B0-elG" secondAttribute="trailing" constant="31" id="S4J-s2-gYG"/>
                             <constraint firstItem="Ifg-bv-iBS" firstAttribute="top" secondItem="VFe-pB-JYB" secondAttribute="top" constant="50" id="SuE-JF-Pik"/>
+                            <constraint firstItem="GDS-B0-elG" firstAttribute="top" secondItem="qJH-cA-Rbg" secondAttribute="bottom" constant="34" id="UpD-cT-c23"/>
+                            <constraint firstItem="Ifg-bv-iBS" firstAttribute="leading" secondItem="q0g-0m-DLJ" secondAttribute="trailing" constant="26" id="UsQ-ys-EyG"/>
+                            <constraint firstItem="q0g-0m-DLJ" firstAttribute="top" secondItem="aiQ-Md-uQp" secondAttribute="bottom" constant="92" id="VPX-xp-NTg"/>
+                            <constraint firstItem="ORA-2M-eSZ" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="ZYR-Ea-NAS"/>
                             <constraint firstItem="Rgr-iO-bjy" firstAttribute="top" secondItem="QOb-qT-HUO" secondAttribute="bottom" constant="44" id="aNz-Tx-AIh"/>
+                            <constraint firstItem="g3b-BS-Ctu" firstAttribute="top" secondItem="aiQ-Md-uQp" secondAttribute="bottom" constant="63" id="awk-Vr-AaF"/>
+                            <constraint firstItem="Ifg-bv-iBS" firstAttribute="leading" secondItem="g3b-BS-Ctu" secondAttribute="trailing" constant="26" id="bEY-O6-RHb"/>
                             <constraint firstItem="Ifg-bv-iBS" firstAttribute="trailing" secondItem="VFe-pB-JYB" secondAttribute="trailing" id="bgB-9J-M51"/>
+                            <constraint firstItem="GDS-B0-elG" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="l8c-tR-hLa"/>
                             <constraint firstItem="QOb-qT-HUO" firstAttribute="top" secondItem="Ifg-bv-iBS" secondAttribute="bottom" id="lJ7-K7-iHW"/>
-                            <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="GDS-B0-elG" secondAttribute="trailing" constant="31" id="m2L-eo-bX7"/>
                             <constraint firstItem="VFe-pB-JYB" firstAttribute="trailing" secondItem="QOb-qT-HUO" secondAttribute="trailing" constant="31" id="nSl-gk-0SU"/>
                             <constraint firstItem="kwf-A5-b4O" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="sC3-gH-KPa"/>
-                            <constraint firstItem="GDS-B0-elG" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="x0C-yc-z6J"/>
+                            <constraint firstItem="jn7-yF-Oob" firstAttribute="top" secondItem="GDS-B0-elG" secondAttribute="bottom" constant="17" id="t5w-8m-w0e"/>
                             <constraint firstItem="QOb-qT-HUO" firstAttribute="leading" secondItem="VFe-pB-JYB" secondAttribute="leading" constant="20" id="xaA-iu-S4Q"/>
+                            <constraint firstItem="ORA-2M-eSZ" firstAttribute="top" secondItem="GDS-B0-elG" secondAttribute="bottom" constant="18" id="yA3-Yi-cyR"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ndb-sj-ZYl" appends="YES" id="2y0-Uc-yMU"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="ZwC-1Y-vT0"/>
                     <connections>
                         <outlet property="heightLabel" destination="gTE-Mt-H90" id="0Vj-W9-hla"/>
                         <outlet property="heightTextField" destination="QOb-qT-HUO" id="Y6N-vY-gyI"/>
                         <outlet property="mainImageView" destination="Ifg-bv-iBS" id="4bt-gP-Bb4"/>
                         <outlet property="mainTitle" destination="kwf-A5-b4O" id="1VA-JX-46X"/>
+                        <outlet property="nicknameLabel" destination="g3b-BS-Ctu" id="tOo-LZ-Mb7"/>
+                        <outlet property="nicknameTextField" destination="q0g-0m-DLJ" id="r8j-7J-xLD"/>
                         <outlet property="randomCalculateButton" destination="qJH-cA-Rbg" id="W6e-0A-xhw"/>
+                        <outlet property="recentresultButton" destination="ORA-2M-eSZ" id="LfL-w4-QK2"/>
+                        <outlet property="removeRecentResultButton" destination="jn7-yF-Oob" id="73D-OJ-C9W"/>
                         <outlet property="resultButton" destination="GDS-B0-elG" id="LHZ-9q-Lho"/>
                         <outlet property="subTitle" destination="aiQ-Md-uQp" id="n3d-sp-0Fb"/>
                         <outlet property="weightLabel" destination="Rgr-iO-bjy" id="yjG-Ih-VvV"/>
@@ -157,6 +212,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="866.51162790697674" y="2.5751072961373391"/>
+        </scene>
+        <!--Irecord View Controller-->
+        <scene sceneID="ioz-gS-TeL">
+            <objects>
+                <viewController id="Wf4-j4-lZ7" customClass="BMIrecordViewController" customModule="BMICalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9K6-qb-IPS">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NS1-uM-SIf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQD-mb-gde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1550" y="3"/>
         </scene>
     </scenes>
     <resources>
