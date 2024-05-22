@@ -91,6 +91,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="randomCalculateButtonDidTapped:" destination="wFh-4U-oge" eventType="touchUpInside" id="TwH-Cc-hDP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDS-B0-elG">
                                 <rect key="frame" x="20" y="694" width="379" height="45"/>

@@ -90,7 +90,41 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func randomCalculateButtonDidTapped(_ sender: UIButton) {
+        
+        alertRandomResult()
+    }
+    
     @IBAction func resultButtonTapped(_ sender: UIButton) {
+        
+        
+        alertResult()
+    }
+    
+    func calculateBMI(_ height: Int, _ weight: Int) -> Double {
+        let heightInMeters = Double(height) / 100.0
+        let bmiResult = Double(weight) / (heightInMeters * heightInMeters)
+        print(bmiResult)
+        return bmiResult
+    }
+    
+    
+    func makeRandomHeight() -> Int {
+        let heightValue = Int.random(in: 100...200)
+        
+        return heightValue
+    }
+    
+    func makeRandomWeight() -> Int {
+        
+        let weightValue = Int.random(in: 20...130)
+        
+        return weightValue
+    }
+    
+    
+    func alertResult() {
+        
         let bmiResult = calculateBMI(height, weight)
         let formattedBMI = String(format: "%.1f", bmiResult)
         let alret = UIAlertController(title: "당신의 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
@@ -101,11 +135,16 @@ class ViewController: UIViewController {
         present(alret, animated: true, completion: nil)
     }
     
-    func calculateBMI(_ height: Int, _ weight: Int) -> Double {
-        let heightInMeters = Double(height) / 100.0
-        let bmiResult = Double(weight) / (heightInMeters * heightInMeters)
-        print(bmiResult)
-        return bmiResult
+    func alertRandomResult() {
+        
+        let bmiResult = calculateBMI(makeRandomHeight(), makeRandomWeight())
+        let formattedBMI = String(format: "%.1f", bmiResult)
+        let alret = UIAlertController(title: "당신의 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alret.addAction(yes)
+        
+        present(alret, animated: true, completion: nil)
     }
     
     
