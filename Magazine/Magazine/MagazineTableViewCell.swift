@@ -44,13 +44,13 @@ class MagazineTableViewCell: UITableViewCell {
     
     
     //TODO: - Title Label 그리는 로직 설정하기
-    func configureTitleLabel(title: String) {
+    private func configureTitleLabel(title: String) {
         
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(10))
     }
     //TODO: - SubTitle Label 그리는 로직 설정하기
-    func configureSubTitleLabel(title: String) {
+    private func configureSubTitleLabel(title: String) {
         
         subTitleLabel.text = title
         subTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
@@ -58,7 +58,7 @@ class MagazineTableViewCell: UITableViewCell {
     }
     
     //TODO: - Date Label 그리는 로직 설정하기
-    func configureDateLabel(dateTitle: String) {
+    private func configureDateLabel(dateTitle: String) {
 
         dateLabel.text = formatDate(date: dateTitle)
         dateLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
@@ -67,7 +67,7 @@ class MagazineTableViewCell: UITableViewCell {
     }
     
     //TODO: - Date 포맷 로직 설정하기
-    func formatDate(date: String) -> String {
+    private func formatDate(date: String) -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
