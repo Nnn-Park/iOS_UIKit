@@ -23,8 +23,7 @@ class MagazineTableViewCell: UITableViewCell {
         configureImageView(urlAdress: magazine.photo_image)
         configureTitleLabel(title: magazine.title)
         configureSubTitleLabel(title: magazine.subtitle)
-        configureDateLabel(dateTitle: magazine.date)
-        
+        configureDateLabel(dateString: magazine.date)
     }
     
     //TODO: - URL 불러오는 로직 설정하기
@@ -44,13 +43,14 @@ class MagazineTableViewCell: UITableViewCell {
     
     
     //TODO: - Title Label 그리는 로직 설정하기
-    private func configureTitleLabel(title: String) {
+    func configureTitleLabel(title: String) {
         
         titleLabel.text = title
-        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(10))
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(5))
     }
+    
     //TODO: - SubTitle Label 그리는 로직 설정하기
-    private func configureSubTitleLabel(title: String) {
+    func configureSubTitleLabel(title: String) {
         
         subTitleLabel.text = title
         subTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
@@ -58,21 +58,26 @@ class MagazineTableViewCell: UITableViewCell {
     }
     
     //TODO: - Date Label 그리는 로직 설정하기
-    private func configureDateLabel(dateTitle: String) {
-
-        dateLabel.text = formatDate(date: dateTitle)
+    func configureDateLabel(dateString: String) {
+        
+        
+        dateLabel.text = formatDate(dateString: dateString)
         dateLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
         dateLabel.textColor = .systemGray2
         dateLabel.textAlignment = .right
     }
     
-    //TODO: - Date 포맷 로직 설정하기
-    private func formatDate(date: String) -> String {
+    //TODO: - Date Format 변화
+    private func formatDate(dateString: String) -> String? {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-
-        let newDate = Date()
-        return dateFormatter.string(from: newDate)
+        dateFormatter.dateFormat = "yyMMdd"
+        
+        guard let date = dateFormatter.date(from: dateString) else {
+            return nil
+        }
+        
+        dateFormatter.dateFormat = "yy년 MM월 dd일"
+        return dateFormatter.string(from: date)
     }
 }

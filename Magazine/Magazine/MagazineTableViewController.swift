@@ -20,14 +20,13 @@ class MagazineTableViewController: UITableViewController {
 
         tableView.rowHeight = 530
         
+        let magazineInfo = MagazineInfo()
+        magazineList = magazineInfo.magazine
+        
         magazineTopTitle.text = "SeSAC TRAVEL"
         magazineTopTitle.textAlignment = .center
         magazineTopTitle.font = .systemFont(ofSize: 20, weight: .bold)
         
-        let magazineInfo = MagazineInfo()
-        magazineList = magazineInfo.magazine
-            
-       
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
