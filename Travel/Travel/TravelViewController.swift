@@ -30,6 +30,7 @@ class TravelViewController: UIViewController, UITableViewDelegate{
         travelTableView.register(UINib(nibName: "AdvertisementTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementTableViewCell")
         
     }
+   
 
     
     
@@ -61,5 +62,10 @@ extension TravelViewController: UITableViewDataSource {
             return adCell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        travelInfoList[indexPath.row].ad ? 80 : 200
+    }
+
     
 }

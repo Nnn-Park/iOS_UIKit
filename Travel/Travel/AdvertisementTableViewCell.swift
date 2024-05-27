@@ -18,10 +18,17 @@ class AdvertisementTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         adMainLabel.textAlignment = .center
-        adUIView.backgroundColor = UIColor.blue
+        adUIView.backgroundColor = .random
         adUIView.layer.cornerRadius = 10
     }
-
-
     
 }
+
+extension UIColor {
+    public class var random: UIColor {
+        return UIColor(red: CGFloat(drand48()),
+                       green: CGFloat(drand48()),
+                       blue: CGFloat(drand48()), alpha: 1.0)
+    }
+}
+
