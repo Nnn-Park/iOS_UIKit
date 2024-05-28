@@ -50,6 +50,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-nq-UqB">
+                        <rect key="frame" x="626" y="8" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="MI6-nq-UqB" secondAttribute="height" multiplier="1:1" id="dTJ-DU-CLA"/>
+                            <constraint firstAttribute="width" constant="45" id="fyp-l3-auo"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-Xb-qOy">
                         <rect key="frame" x="20" y="82" width="216" height="36"/>
                         <constraints>
@@ -69,8 +77,10 @@
                     <constraint firstItem="KGf-fn-Obi" firstAttribute="leading" secondItem="eKr-yQ-eTv" secondAttribute="trailing" constant="36" id="AsU-a0-abA"/>
                     <constraint firstItem="qzD-Df-pv5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="B4F-I8-n81"/>
                     <constraint firstItem="qzD-Df-pv5" firstAttribute="top" secondItem="eKr-yQ-eTv" secondAttribute="bottom" constant="8" id="E1e-3d-Pev"/>
+                    <constraint firstAttribute="trailing" secondItem="MI6-nq-UqB" secondAttribute="trailing" constant="20" id="Ke1-D3-GuH"/>
                     <constraint firstItem="Dn1-av-Hei" firstAttribute="top" secondItem="qzD-Df-pv5" secondAttribute="bottom" constant="8" id="a6x-Ro-xCS"/>
                     <constraint firstAttribute="trailing" secondItem="KGf-fn-Obi" secondAttribute="trailing" constant="20" id="cT8-ix-RH2"/>
+                    <constraint firstItem="MI6-nq-UqB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="eXa-QV-t8A"/>
                     <constraint firstItem="eEp-Xb-qOy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="f9c-if-5vT"/>
                     <constraint firstItem="eEp-Xb-qOy" firstAttribute="top" secondItem="qzD-Df-pv5" secondAttribute="bottom" constant="8" id="qp0-sx-Yb9"/>
                     <constraint firstItem="KGf-fn-Obi" firstAttribute="leading" secondItem="Dn1-av-Hei" secondAttribute="trailing" constant="36" id="sD5-ZR-eDX"/>
@@ -80,6 +90,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="likeButton" destination="MI6-nq-UqB" id="Zov-Yv-2OG"/>
                 <outlet property="travelGradeLabel" destination="eEp-Xb-qOy" id="fNY-sd-iyU"/>
                 <outlet property="travelImageView" destination="KGf-fn-Obi" id="K8f-pQ-inb"/>
                 <outlet property="travelInfoLabel" destination="qzD-Df-pv5" id="7s6-cj-zTW"/>

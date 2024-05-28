@@ -48,6 +48,10 @@ extension TravelViewController: UITableViewDataSource {
             
             mainCell.configureUI(travel: travelInfoList[indexPath.row])
             
+            mainCell.likeButton.tag = indexPath.row
+            mainCell.likeButton.addTarget(self, action: #selector(isLikeButtonTapped), for: .touchUpInside)
+            
+            
             return mainCell
         } else {
             
@@ -65,11 +69,15 @@ extension TravelViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         travelInfoList[indexPath.row].ad ? 80 : 200
-
     }
     
-    
+    @objc func isLikeButtonTapped(_ sender: UIButton) {
+        
+        travelInfoList[sender.tag].like?.toggle()
+        travelTableView.reloadData()
+    }
 
     
 }

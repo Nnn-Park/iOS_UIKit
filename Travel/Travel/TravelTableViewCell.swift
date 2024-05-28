@@ -16,13 +16,10 @@ class TravelTableViewCell: UITableViewCell {
     
     @IBOutlet var travelImageView: UIImageView!
     
-    
     @IBOutlet var travelGradeLabel: UILabel!
-    
-   
     @IBOutlet var travelSaveLabel: UILabel!
     
-    
+    @IBOutlet var likeButton: UIButton!
     
     
     override func awakeFromNib() {
@@ -30,6 +27,7 @@ class TravelTableViewCell: UITableViewCell {
         
     }
     
+   
     func configureUI(travel: Travel) {
         
         configureImageView(urlAdress: travel.travel_image)
@@ -37,6 +35,7 @@ class TravelTableViewCell: UITableViewCell {
         configureDescriptionLabel(title: travel.description)
         configureGradeLabel(grade: travel.grade)
         configureSaveLabel(save: travel.save)
+        configureLikeButton(like: travel.like)
     }
 
     //TODO: - URL 불러오는 로직 설정하기
@@ -93,6 +92,15 @@ class TravelTableViewCell: UITableViewCell {
         }
         travelSaveLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
         travelSaveLabel.textColor = .black
+    }
+    
+    func configureLikeButton(like: Bool?) {
+        
+        let imageName = like == true ? "heart" : "heart.fill"
+        let image = UIImage(systemName: imageName)
+        
+        likeButton.setImage(image, for: .normal)
+        likeButton.tintColor = .red
     }
     
 }
