@@ -30,12 +30,6 @@ class TravelViewController: UIViewController, UITableViewDelegate{
         travelTableView.register(UINib(nibName: "AdvertisementTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementTableViewCell")
         
     }
-   
-
-    
-    
-   
-   
 
 }
 
@@ -59,13 +53,23 @@ extension TravelViewController: UITableViewDataSource {
             
             let adCell = tableView.dequeueReusableCell(withIdentifier: "AdvertisementTableViewCell", for: indexPath) as! AdvertisementTableViewCell
             
+            adCell.showAdTitle(travel: travelInfoList[indexPath.row])
+            
+            if indexPath.row == 1 {
+                adCell.isTouched = true
+            } else {
+                adCell.isTouched = false
+            }
             return adCell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         travelInfoList[indexPath.row].ad ? 80 : 200
+
     }
+    
+    
 
     
 }
