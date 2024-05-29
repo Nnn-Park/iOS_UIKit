@@ -28,7 +28,7 @@ class TravelViewController: UIViewController, UITableViewDelegate{
         travelTableView.register(UINib(nibName: "TravelTableViewCell", bundle: nil), forCellReuseIdentifier: "TravelTableViewCell")
         travelTableView.register(UINib(nibName: "AdvertisementTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementTableViewCell")
     }
-
+    
 }
 
 extension TravelViewController: UITableViewDataSource {
@@ -36,7 +36,7 @@ extension TravelViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+        
         return travelInfoList.count
     }
     
@@ -47,10 +47,9 @@ extension TravelViewController: UITableViewDataSource {
             let mainCell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
             
             mainCell.configureUI(travel: travelInfoList[indexPath.row])
-
+            
             mainCell.likeButton.tag = indexPath.row
             mainCell.likeButton.addTarget(self, action: #selector(isLikeButtonTapped), for: .touchUpInside)
-            
             
             return mainCell
             
@@ -63,6 +62,33 @@ extension TravelViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if travelInfoList[indexPath.row].ad == false {
+            
+            let indexPath = IndexPath(row: indexPath.row, section: 0)
+            let data = travelInfoList[indexPath.row]
+            
+            guard let travelSpotViewController = self.storyboard?.instantiateViewController(withIdentifier: "TravelSpotViewController") as? TravelSpotViewController else { return
+            }
+            
+            travelSpotViewController.maintTtle = data.title
+            
+            self.navigationController?.pushViewController(travelSpotViewController, animated: true)
+        }
+        else {
+            
+//            let indexPath = IndexPath(row: indexPath.row, section: 0)
+//            let data = travelInfoList[indexPath.row]
+            
+            guard let AdvertisementInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdvertisementInfoViewController") as? AdvertisementInfoViewController else {
+                return
+            }
+
+            AdvertisementInfoViewController.modalPresentationStyle = .fullScreen
+            
+            present(AdvertisementInfoViewController, animated: true)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         travelInfoList[indexPath.row].ad ? 80 : 200
@@ -74,6 +100,7 @@ extension TravelViewController: UITableViewDataSource {
         // 좋아요 버튼 있는 row만 reload
         travelTableView.reloadRows(at: [indexPath], with: .automatic)
     }
-
+    
+    
     
 }

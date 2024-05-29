@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE450E1F2C071D7A000B3ACC /* TravelSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE450E1E2C071D7A000B3ACC /* TravelSpotViewController.swift */; };
+		FE450E212C073CC4000B3ACC /* AdvertisementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */; };
 		FEAC833D2C045BE700357BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAC833C2C045BE700357BD3 /* AppDelegate.swift */; };
 		FEAC833F2C045BE700357BD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAC833E2C045BE700357BD3 /* SceneDelegate.swift */; };
 		FEAC83412C045BE700357BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAC83402C045BE700357BD3 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE450E1E2C071D7A000B3ACC /* TravelSpotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelSpotViewController.swift; sourceTree = "<group>"; };
+		FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementInfoViewController.swift; sourceTree = "<group>"; };
 		FEAC83392C045BE700357BD3 /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEAC833C2C045BE700357BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEAC833E2C045BE700357BD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE450E222C073CD0000B3ACC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FEAC835B2C047C5100357BD3 /* AdvertisementTableViewCell.xib */,
+				FEAC835A2C047C5100357BD3 /* AdvertisementTableViewCell.swift */,
+				FEAC83572C045DB700357BD3 /* TravelTableViewCell.xib */,
+				FEAC83562C045DB700357BD3 /* TravelTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE450E232C073CFF000B3ACC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FEAC83502C045C4A00357BD3 /* TravelModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FEAC83302C045BE700357BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -73,16 +96,15 @@
 				FEAC833C2C045BE700357BD3 /* AppDelegate.swift */,
 				FEAC833E2C045BE700357BD3 /* SceneDelegate.swift */,
 				FEAC83402C045BE700357BD3 /* ViewController.swift */,
+				FE450E222C073CD0000B3ACC /* Cell */,
+				FE450E232C073CFF000B3ACC /* Model */,
 				FEAC83422C045BE700357BD3 /* Main.storyboard */,
-				FEAC83452C045BE800357BD3 /* Assets.xcassets */,
 				FEAC83472C045BE800357BD3 /* LaunchScreen.storyboard */,
-				FEAC834A2C045BE800357BD3 /* Info.plist */,
+				FE450E1E2C071D7A000B3ACC /* TravelSpotViewController.swift */,
+				FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */,
 				FEAC83522C045D7A00357BD3 /* TravelViewController.swift */,
-				FEAC83562C045DB700357BD3 /* TravelTableViewCell.swift */,
-				FEAC83572C045DB700357BD3 /* TravelTableViewCell.xib */,
-				FEAC835A2C047C5100357BD3 /* AdvertisementTableViewCell.swift */,
-				FEAC835B2C047C5100357BD3 /* AdvertisementTableViewCell.xib */,
-				FEAC83502C045C4A00357BD3 /* TravelModel.swift */,
+				FEAC834A2C045BE800357BD3 /* Info.plist */,
+				FEAC83452C045BE800357BD3 /* Assets.xcassets */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -168,8 +190,10 @@
 			files = (
 				FEAC83412C045BE700357BD3 /* ViewController.swift in Sources */,
 				FEAC83582C045DB700357BD3 /* TravelTableViewCell.swift in Sources */,
+				FE450E212C073CC4000B3ACC /* AdvertisementInfoViewController.swift in Sources */,
 				FEAC835C2C047C5100357BD3 /* AdvertisementTableViewCell.swift in Sources */,
 				FEAC833D2C045BE700357BD3 /* AppDelegate.swift in Sources */,
+				FE450E1F2C071D7A000B3ACC /* TravelSpotViewController.swift in Sources */,
 				FEAC833F2C045BE700357BD3 /* SceneDelegate.swift in Sources */,
 				FEAC83512C045C4A00357BD3 /* TravelModel.swift in Sources */,
 				FEAC83542C045D7A00357BD3 /* TravelViewController.swift in Sources */,
