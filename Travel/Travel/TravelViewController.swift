@@ -48,6 +48,7 @@ extension TravelViewController: UITableViewDataSource {
             
             mainCell.configureUI(travel: travelInfoList[indexPath.row])
 
+            mainCell.likeButton.tag = indexPath.row
             mainCell.likeButton.addTarget(self, action: #selector(isLikeButtonTapped), for: .touchUpInside)
             
             
