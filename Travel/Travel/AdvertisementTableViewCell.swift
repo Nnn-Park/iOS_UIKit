@@ -14,9 +14,9 @@ class AdvertisementTableViewCell: UITableViewCell {
     @IBOutlet var adUIView: UIView!
     
     // Cell Reuse 해결 하기 위한 연산 프로퍼티
-    var isTouched: Bool? {
+    var isBackgroundRandom: Bool? {
         didSet {
-            if isTouched == true {
+            if isBackgroundRandom == true {
                 adUIView.backgroundColor = .random
             } else {
                 adUIView.backgroundColor = .random
@@ -48,6 +48,11 @@ class AdvertisementTableViewCell: UITableViewCell {
         
         adUIView.backgroundColor = .random
         adUIView.layer.cornerRadius = 15
+    }
+    
+    //MARK: - ad Cell의 배경만 random Color로 만들기
+    func findAdCell(ad: Bool) {
+        adUIView.backgroundColor = .random
     }
     
 }

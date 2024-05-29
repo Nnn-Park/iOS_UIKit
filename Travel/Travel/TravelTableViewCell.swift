@@ -21,6 +21,7 @@ class TravelTableViewCell: UITableViewCell {
     
     @IBOutlet var likeButton: UIButton!
     
+    var isRowSelected: Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -93,7 +94,7 @@ class TravelTableViewCell: UITableViewCell {
         travelSaveLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(5))
         travelSaveLabel.textColor = .black
     }
-    
+
     func configureLikeButton(like: Bool?) {
         
         let imageName = like == true ? "heart" : "heart.fill"
