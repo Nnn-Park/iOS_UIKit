@@ -51,7 +51,7 @@ class AdvertisementTableViewCell: UITableViewCell {
     }
     
     //MARK: - ad Cell의 배경만 random Color로 만들기
-    func findAdCell(ad: Bool) {
+    func findAdCell() {
         adUIView.backgroundColor = .random
     }
     

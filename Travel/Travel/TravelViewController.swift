@@ -10,20 +10,18 @@ import UIKit
 class TravelViewController: UIViewController, UITableViewDelegate{
     
     @IBOutlet var travelTableView: UITableView!
-    @IBOutlet var travelMainLabel: UILabel!
-    
+
     var travelInfoList = TravelInfo().travel
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "도시 상세 정보"
+        
         travelTableView.rowHeight = 200
         travelTableView.delegate = self
         travelTableView.dataSource = self
         
-        travelMainLabel.text = "도시 상세 정보"
-        travelMainLabel.textAlignment = .center
-        travelMainLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(5))
         
         travelTableView.register(UINib(nibName: "TravelTableViewCell", bundle: nil), forCellReuseIdentifier: "TravelTableViewCell")
         travelTableView.register(UINib(nibName: "AdvertisementTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementTableViewCell")
@@ -56,7 +54,7 @@ extension TravelViewController: UITableViewDataSource {
         } else {
             
             let adCell = tableView.dequeueReusableCell(withIdentifier: "AdvertisementTableViewCell", for: indexPath) as! AdvertisementTableViewCell
-            
+            adCell.findAdCell()
             adCell.showAdTitle(travel: travelInfoList[indexPath.row])
             return adCell
         }
@@ -70,14 +68,13 @@ extension TravelViewController: UITableViewDataSource {
             
             guard let travelSpotViewController = self.storyboard?.instantiateViewController(withIdentifier: "TravelSpotViewController") as? TravelSpotViewController else { return
             }
-            
-            travelSpotViewController.maintTtle = data.title
-            
+            travelSpotViewController.data = data
+                
             self.navigationController?.pushViewController(travelSpotViewController, animated: true)
         }
         else {
             
-//            let indexPath = IndexPath(row: indexPath.row, section: 0)
+
 //            let data = travelInfoList[indexPath.row]
             
             guard let AdvertisementInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdvertisementInfoViewController") as? AdvertisementInfoViewController else {
