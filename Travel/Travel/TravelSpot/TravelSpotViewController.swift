@@ -64,6 +64,7 @@ class TravelSpotViewController: UIViewController {
         if let adress = urlAdress {
             travelSpotInfoImage.kf.setImage(with: configureURL(urlAdress: adress))
         }
+        
         travelSpotInfoImage.contentMode = .scaleAspectFill
         travelSpotInfoImage.layer.cornerRadius = 10
     }
