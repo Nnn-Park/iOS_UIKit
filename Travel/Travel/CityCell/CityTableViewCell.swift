@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class CityTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var cityImage: UIImageView!
     
     @IBOutlet var cityNameLabel: UILabel!
@@ -45,7 +45,23 @@ class CityTableViewCell: UITableViewCell {
             cityImage.kf.setImage(with: configureURL(urlAdress: adress))
         }
         cityImage.contentMode = .scaleAspectFill
-        cityImage.layer.cornerRadius = 10
+        
+    }
+    
+    //MARK: - 뷰의 하위 뷰가 배치된 후에 호출해서 이미지 뷰의 크기가 이미 정해진 후에 모서리를 둥글게 적용
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let cornerRadius: CGFloat = 10
+        let maskPath = UIBezierPath(
+            roundedRect: cityImage.bounds,
+            byRoundingCorners: [.topLeft, .bottomRight],
+            cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+        )
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = cityImage.bounds
+        maskLayer.path = maskPath.cgPath
+        cityImage.layer.mask = maskLayer
     }
     
     //TODO: - City Label 그리는 로직 설정하기

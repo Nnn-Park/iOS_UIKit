@@ -17,26 +17,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bms-hn-I6b">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7qY-d1-hRx">
+                                <rect key="frame" x="16" y="67" width="361" height="32"/>
+                                <segments>
+                                    <segment title="모두"/>
+                                    <segment title="국내"/>
+                                    <segment title="해외"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bms-hn-I6b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Nlc-Ux-GDy"/>
-                            <constraint firstItem="bms-hn-I6b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="b6e-EM-Eo8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7qY-d1-hRx" secondAttribute="trailing" constant="16" id="aN3-M0-zZV"/>
+                            <constraint firstItem="bms-hn-I6b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="b6e-EM-Eo8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bms-hn-I6b" secondAttribute="trailing" id="bih-RI-JU4"/>
+                            <constraint firstItem="7qY-d1-hRx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="ebN-Ha-8jN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bms-hn-I6b" secondAttribute="bottom" id="gvt-WJ-2Rh"/>
+                            <constraint firstItem="7qY-d1-hRx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zfw-gU-h5A"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="citySegmentedControl" destination="7qY-d1-hRx" id="xpF-dV-DFX"/>
                         <outlet property="cityTableView" destination="bms-hn-I6b" id="Lku-Bs-uW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
