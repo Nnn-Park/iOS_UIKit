@@ -14,12 +14,14 @@ class TravelTalkViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var travelTalkTableView: UITableView!
     
-    let chatData = mockChatList
+    let chatRoomData = mockChatList
     
     var cellId: Identifier = .TravelTalkViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "TRAVEL TALK"
         
         travelTalkTableView.rowHeight = 100
 
@@ -31,26 +33,25 @@ class TravelTalkViewController: UIViewController, UITableViewDelegate {
         
     }
     
-
-   
-    
     
 }
 
 extension TravelTalkViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        chatData.count
+        chatRoomData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let travelTalkCell = travelTalkTableView.dequeueReusableCell(withIdentifier: cellId.identifier, for: indexPath) as! TravelTalkTableViewCell
         
-        travelTalkCell.configureUI(chatRoom: chatData[indexPath.row])
+        let chatRoom = chatRoomData[indexPath.row]
+        travelTalkCell.configureChatRoomUI(chatRoom: chatRoomData[indexPath.row])
+        
         
         return travelTalkCell
     }
     
-    
+
 }

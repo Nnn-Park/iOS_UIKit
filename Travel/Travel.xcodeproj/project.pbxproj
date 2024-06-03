@@ -15,6 +15,7 @@
 		FE450E212C073CC4000B3ACC /* AdvertisementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */; };
 		FE6610DA2C0E07D800801CFF /* TravelTalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6610D92C0E07D800801CFF /* TravelTalkTableViewCell.xib */; };
 		FE6610DB2C0E07D800801CFF /* TravelTalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6610D82C0E07D800801CFF /* TravelTalkTableViewCell.swift */; };
+		FE6610DC2C0E14CC00801CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEAC83452C045BE800357BD3 /* Assets.xcassets */; };
 		FE7B66E62C09B5CC008FC191 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B66E52C09B5CC008FC191 /* CityInfo.swift */; };
 		FE7B66E82C09B65E008FC191 /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7B66E72C09B65E008FC191 /* City.storyboard */; };
 		FE7B66EA2C09B694008FC191 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B66E92C09B694008FC191 /* CityViewController.swift */; };
@@ -229,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6610DC2C0E14CC00801CFF /* Assets.xcassets in Resources */,
 				FEAC83592C045DB700357BD3 /* TravelTableViewCell.xib in Resources */,
 				FE6610DA2C0E07D800801CFF /* TravelTalkTableViewCell.xib in Resources */,
 				FEAC835D2C047C5100357BD3 /* AdvertisementTableViewCell.xib in Resources */,

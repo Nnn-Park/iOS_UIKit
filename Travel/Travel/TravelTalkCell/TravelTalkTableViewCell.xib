@@ -22,15 +22,25 @@
                             <constraint firstAttribute="width" secondItem="V1F-P6-IMw" secondAttribute="height" multiplier="1:1" id="1sB-IA-UBK"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vax-xi-cZI">
+                        <rect key="frame" x="87" y="24" width="137" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="V1F-P6-IMw" secondAttribute="bottom" constant="16" id="3t0-6c-kZc"/>
+                    <constraint firstItem="vax-xi-cZI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="Nsq-fF-csc"/>
+                    <constraint firstItem="vax-xi-cZI" firstAttribute="leading" secondItem="V1F-P6-IMw" secondAttribute="trailing" constant="8" id="cmP-Vd-P6v"/>
                     <constraint firstItem="V1F-P6-IMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kR6-do-Iw6"/>
                     <constraint firstItem="V1F-P6-IMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="owe-To-wtN"/>
+                    <constraint firstAttribute="trailing" secondItem="vax-xi-cZI" secondAttribute="trailing" constant="96" id="xBC-lp-nck"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="travelTalkChatRoomNameLabel" destination="vax-xi-cZI" id="oiY-pM-wrz"/>
                 <outlet property="travelTalkImageView" destination="V1F-P6-IMw" id="Zui-ch-Ph4"/>
             </connections>
             <point key="canvasLocation" x="62.595419847328245" y="7.394366197183099"/>

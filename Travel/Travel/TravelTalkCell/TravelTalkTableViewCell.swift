@@ -15,6 +15,7 @@ class TravelTalkTableViewCell: UITableViewCell {
     @IBOutlet var travelTalkChatRoomNameLabel: UILabel!
     @IBOutlet var travelTalkChatMessageLabel: UILabel!
     
+    @IBOutlet var travelTalkChatDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,33 +25,36 @@ class TravelTalkTableViewCell: UITableViewCell {
         
     }
 
-    func configureUI(chatRoom: ChatRoom) {
+    
+    func configureChatRoomUI(chatRoom: ChatRoom) {
         
         if let firstImageName = chatRoom.chatroomImage.first {
                 configureImageView(image: firstImageName)
-            } else {
-                configureImageView(image: "defaultImage")
             }
+        configureRoomChatRoomLabel(user: chatRoom.chatroomName)
     }
-    
-    
+ 
     //TODO: - Image View 그리는 로직 설정하기
-    func configureImageView(image: String){
+    private func configureImageView(image: String){
         
         travelTalkImageView.image = UIImage(named: image)
         travelTalkImageView.contentMode = .scaleAspectFill
-        travelTalkImageView.layer.cornerRadius = self.frame.height / 2
+        travelTalkImageView.layer.cornerRadius = travelTalkImageView.frame.height / 2
+        travelTalkImageView.clipsToBounds = true
     }
     
-//    private func configureRoomLabel() {
-//        travelTalkChatRoomNameLabel.text = "dfafa"
-//    }
+    private func configureRoomChatRoomLabel(user: String) {
+        
+        travelTalkChatRoomNameLabel.text = user
+        travelTalkChatRoomNameLabel.font = .systemFont(ofSize: 15, weight: .bold)
+    }
     
-    
-    
-    
-    
-    
+    private func configureRoomChatMessageLabel(message: String) {
+        
+        travelTalkChatMessageLabel.text = message
+        travelTalkChatMessageLabel.font = .systemFont(ofSize: 10)
+        
+    }
     
 }
 
