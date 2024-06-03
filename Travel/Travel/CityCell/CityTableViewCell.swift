@@ -52,7 +52,7 @@ class CityTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let cornerRadius: CGFloat = 10
+        let cornerRadius: CGFloat = 20
         let maskPath = UIBezierPath(
             roundedRect: cityImage.bounds,
             byRoundingCorners: [.topLeft, .bottomRight],
@@ -72,7 +72,5 @@ class CityTableViewCell: UITableViewCell {
         cityNameLabel.textColor = .white
         cityNameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(5))
     }
-    
-    
     
 }

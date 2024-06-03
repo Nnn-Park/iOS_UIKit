@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE1A3C712C0D92BE00B7A9CF /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A3C702C0D92BE00B7A9CF /* ChattingData.swift */; };
+		FE1A3C732C0D931100B7A9CF /* TravelTalk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE1A3C722C0D931100B7A9CF /* TravelTalk.storyboard */; };
+		FE1A3C752C0D935C00B7A9CF /* TravelTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A3C742C0D935C00B7A9CF /* TravelTalkViewController.swift */; };
+		FE1A3C7C2C0D997F00B7A9CF /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A3C7B2C0D997F00B7A9CF /* ReusableProtocol.swift */; };
 		FE450E1F2C071D7A000B3ACC /* TravelSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE450E1E2C071D7A000B3ACC /* TravelSpotViewController.swift */; };
 		FE450E212C073CC4000B3ACC /* AdvertisementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */; };
+		FE6610DA2C0E07D800801CFF /* TravelTalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE6610D92C0E07D800801CFF /* TravelTalkTableViewCell.xib */; };
+		FE6610DB2C0E07D800801CFF /* TravelTalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6610D82C0E07D800801CFF /* TravelTalkTableViewCell.swift */; };
 		FE7B66E62C09B5CC008FC191 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B66E52C09B5CC008FC191 /* CityInfo.swift */; };
 		FE7B66E82C09B65E008FC191 /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7B66E72C09B65E008FC191 /* City.storyboard */; };
 		FE7B66EA2C09B694008FC191 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B66E92C09B694008FC191 /* CityViewController.swift */; };
@@ -29,8 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE1A3C702C0D92BE00B7A9CF /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
+		FE1A3C722C0D931100B7A9CF /* TravelTalk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelTalk.storyboard; sourceTree = "<group>"; };
+		FE1A3C742C0D935C00B7A9CF /* TravelTalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTalkViewController.swift; sourceTree = "<group>"; };
+		FE1A3C7B2C0D997F00B7A9CF /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		FE450E1E2C071D7A000B3ACC /* TravelSpotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelSpotViewController.swift; sourceTree = "<group>"; };
 		FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementInfoViewController.swift; sourceTree = "<group>"; };
+		FE6610D82C0E07D800801CFF /* TravelTalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTalkTableViewCell.swift; sourceTree = "<group>"; };
+		FE6610D92C0E07D800801CFF /* TravelTalkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelTalkTableViewCell.xib; sourceTree = "<group>"; };
 		FE7B66E52C09B5CC008FC191 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		FE7B66E72C09B65E008FC191 /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
 		FE7B66E92C09B694008FC191 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE1A3C7A2C0D948C00B7A9CF /* TravelTalkCell */ = {
+			isa = PBXGroup;
+			children = (
+				FE6610D82C0E07D800801CFF /* TravelTalkTableViewCell.swift */,
+				FE6610D92C0E07D800801CFF /* TravelTalkTableViewCell.xib */,
+			);
+			path = TravelTalkCell;
+			sourceTree = "<group>";
+		};
 		FE450E222C073CD0000B3ACC /* TravelCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +101,7 @@
 			children = (
 				FE7B66E52C09B5CC008FC191 /* CityInfo.swift */,
 				FEAC83502C045C4A00357BD3 /* TravelModel.swift */,
+				FE1A3C702C0D92BE00B7A9CF /* ChattingData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,14 +149,18 @@
 				FEAC833E2C045BE700357BD3 /* SceneDelegate.swift */,
 				FEAC83422C045BE700357BD3 /* Main.storyboard */,
 				FE7B66E72C09B65E008FC191 /* City.storyboard */,
+				FE1A3C722C0D931100B7A9CF /* TravelTalk.storyboard */,
 				FEAC83472C045BE800357BD3 /* LaunchScreen.storyboard */,
 				FE450E202C073CC4000B3ACC /* AdvertisementInfoViewController.swift */,
 				FEAC83522C045D7A00357BD3 /* TravelViewController.swift */,
 				FE7B66E92C09B694008FC191 /* CityViewController.swift */,
+				FE1A3C742C0D935C00B7A9CF /* TravelTalkViewController.swift */,
 				FE450E232C073CFF000B3ACC /* Model */,
 				FE450E222C073CD0000B3ACC /* TravelCell */,
 				FE7B66DA2C086F09008FC191 /* TravelSpot */,
 				FE7B66EF2C09B9B5008FC191 /* CityCell */,
+				FE1A3C7A2C0D948C00B7A9CF /* TravelTalkCell */,
+				FE1A3C7B2C0D997F00B7A9CF /* ReusableProtocol.swift */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -204,10 +230,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEAC83592C045DB700357BD3 /* TravelTableViewCell.xib in Resources */,
+				FE6610DA2C0E07D800801CFF /* TravelTalkTableViewCell.xib in Resources */,
 				FEAC835D2C047C5100357BD3 /* AdvertisementTableViewCell.xib in Resources */,
 				FEAC83492C045BE800357BD3 /* Base in Resources */,
 				FE7B66E82C09B65E008FC191 /* City.storyboard in Resources */,
 				FE7B66ED2C09B9AC008FC191 /* CityTableViewCell.xib in Resources */,
+				FE1A3C732C0D931100B7A9CF /* TravelTalk.storyboard in Resources */,
 				FEAC83442C045BE700357BD3 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,13 +249,17 @@
 			files = (
 				FEAC83412C045BE700357BD3 /* ViewController.swift in Sources */,
 				FEAC83582C045DB700357BD3 /* TravelTableViewCell.swift in Sources */,
+				FE1A3C712C0D92BE00B7A9CF /* ChattingData.swift in Sources */,
 				FE7B66E62C09B5CC008FC191 /* CityInfo.swift in Sources */,
 				FE450E212C073CC4000B3ACC /* AdvertisementInfoViewController.swift in Sources */,
+				FE6610DB2C0E07D800801CFF /* TravelTalkTableViewCell.swift in Sources */,
 				FEAC835C2C047C5100357BD3 /* AdvertisementTableViewCell.swift in Sources */,
+				FE1A3C7C2C0D997F00B7A9CF /* ReusableProtocol.swift in Sources */,
 				FE7B66EA2C09B694008FC191 /* CityViewController.swift in Sources */,
 				FE7B66EE2C09B9AC008FC191 /* CityTableViewCell.swift in Sources */,
 				FEAC833D2C045BE700357BD3 /* AppDelegate.swift in Sources */,
 				FE450E1F2C071D7A000B3ACC /* TravelSpotViewController.swift in Sources */,
+				FE1A3C752C0D935C00B7A9CF /* TravelTalkViewController.swift in Sources */,
 				FEAC833F2C045BE700357BD3 /* SceneDelegate.swift in Sources */,
 				FEAC83512C045C4A00357BD3 /* TravelModel.swift in Sources */,
 				FEAC83542C045D7A00357BD3 /* TravelViewController.swift in Sources */,

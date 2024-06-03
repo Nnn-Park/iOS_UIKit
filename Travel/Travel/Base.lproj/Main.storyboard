@@ -181,11 +181,40 @@
                     <connections>
                         <segue destination="Fka-NZ-9T5" kind="relationship" relationship="viewControllers" id="qYQ-LK-SmT"/>
                         <segue destination="zu3-HH-Kfd" kind="relationship" relationship="viewControllers" id="PGZ-Vh-hN4"/>
+                        <segue destination="gJw-Sr-xWl" kind="relationship" relationship="viewControllers" id="ExF-8i-ugr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsJ-Zz-j4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1524" y="-155"/>
+        </scene>
+        <!--TravelTalk-->
+        <scene sceneID="ZHs-14-Tbr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TravelTalk" id="IGq-Ih-RoU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="pSK-pp-Dvn"/>
+                    <navigationItem key="navigationItem" id="CyT-b4-Sco"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnk-AE-iZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127" y="-791"/>
+        </scene>
+        <!--Talk-->
+        <scene sceneID="Zwm-FM-DZV">
+            <objects>
+                <navigationController id="gJw-Sr-xWl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Talk" image="bubble" catalog="system" id="AqF-ne-LrP"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6OD-9g-RBG">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IGq-Ih-RoU" kind="relationship" relationship="rootViewController" id="Aqf-g3-Cxp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKT-b4-d8U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-809" y="-785"/>
         </scene>
         <!--Travel-->
         <scene sceneID="2BV-5P-CUC">
@@ -209,6 +238,7 @@
     </scenes>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
+        <image name="bubble" catalog="system" width="128" height="110"/>
         <image name="building" catalog="system" width="110" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
