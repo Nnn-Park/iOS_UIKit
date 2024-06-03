@@ -53,5 +53,15 @@ extension TravelTalkViewController: UITableViewDataSource {
         return travelTalkCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedChatRoomId = chatRoomData[indexPath.row].chatroomId
+        
+        let selectedChatRoom = chatRoomData.first { $0.chatroomId == selectedChatRoomId }
+        
+        guard let chatRoomViewController = storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController else { return }
+        chatRoomViewController.chatRoom = selectedChatRoom
+        navigationController?.pushViewController(chatRoomViewController, animated: true)
+    }
 
 }
