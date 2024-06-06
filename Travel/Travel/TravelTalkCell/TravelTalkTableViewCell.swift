@@ -30,6 +30,7 @@ class TravelTalkTableViewCell: UITableViewCell {
         
         if let firstImageName = chatRoom.chatroomImage.first {
                 configureImageView(image: firstImageName)
+            print(firstImageName)
             }
         configureRoomChatRoomLabel(user: chatRoom.chatroomName)
     }

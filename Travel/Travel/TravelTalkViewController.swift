@@ -10,11 +10,12 @@ import UIKit
 class TravelTalkViewController: UIViewController, UITableViewDelegate {
 
     
-    @IBOutlet var travelTalkFriendNameSearchTextField: UITextField!
+    @IBOutlet var travelTalkSearchBar: UISearchBar!
     
     @IBOutlet var travelTalkTableView: UITableView!
     
-    let chatRoomData = mockChatList
+    var chatRoomData = mockChatList
+    var filteredChatRoomData: [ChatRoom] = []
     
     var cellId: Identifier = .TravelTalkViewController
     
@@ -27,6 +28,7 @@ class TravelTalkViewController: UIViewController, UITableViewDelegate {
 
         travelTalkTableView.delegate = self
         travelTalkTableView.dataSource = self
+        travelTalkSearchBar.delegate = self
         
         let xib = UINib(nibName: cellId.identifier, bundle: nil)
         travelTalkTableView.register(xib, forCellReuseIdentifier: cellId.identifier)
@@ -34,6 +36,20 @@ class TravelTalkViewController: UIViewController, UITableViewDelegate {
     }
     
     
+}
+
+extension TravelTalkViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // 검색어에 따라 필터링된 데이터 업데이트
+        filteredChatRoomData = chatRoomData.filter { chatRoom in
+            // 여기서 사용자 이름이 검색어와 일치하는지 확인
+            return chatRoom.chatroomName.lowercased().contains(searchText.lowercased())
+        }
+        
+        // 테이블 뷰 업데이트
+        travelTalkTableView.reloadData()
+    }
 }
 
 extension TravelTalkViewController: UITableViewDataSource {
@@ -47,8 +63,7 @@ extension TravelTalkViewController: UITableViewDataSource {
         let travelTalkCell = travelTalkTableView.dequeueReusableCell(withIdentifier: cellId.identifier, for: indexPath) as! TravelTalkTableViewCell
         
         let chatRoom = chatRoomData[indexPath.row]
-        travelTalkCell.configureChatRoomUI(chatRoom: chatRoomData[indexPath.row])
-        
+        travelTalkCell.configureChatRoomUI(chatRoom: chatRoom)
         
         return travelTalkCell
     }

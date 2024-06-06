@@ -16,34 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WO0-b1-NLB">
-                                <rect key="frame" x="16" y="59" width="361" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="uGA-Yz-dwK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZX-Ra-1eq">
                                 <rect key="frame" x="0.0" y="133" width="393" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oxi-NQ-P6k">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="GcL-UZ-EMd"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1nj-3e-twe"/>
-                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="IQu-Sm-Tz3"/>
-                            <constraint firstItem="WO0-b1-NLB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="KLG-LX-Abb"/>
-                            <constraint firstItem="WO0-b1-NLB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="KfN-yz-f1C"/>
-                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="UI4-n6-VjD"/>
-                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="top" secondItem="WO0-b1-NLB" secondAttribute="bottom" constant="34" id="oFL-t9-4jn"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WO0-b1-NLB" secondAttribute="trailing" constant="16" id="qaf-Bq-mme"/>
+                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="8AW-vL-dAe"/>
+                            <constraint firstItem="Oxi-NQ-P6k" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9gU-Te-QuJ"/>
+                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="N4J-7s-99B"/>
+                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="top" secondItem="Oxi-NQ-P6k" secondAttribute="bottom" constant="18" id="ahf-7E-4Hg"/>
+                            <constraint firstItem="Oxi-NQ-P6k" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dpH-vX-Oxg"/>
+                            <constraint firstItem="Oxi-NQ-P6k" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="iyx-Bu-SQA"/>
+                            <constraint firstItem="oZX-Ra-1eq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vZP-9M-PG3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2vU-qD-x4l"/>
                     <connections>
-                        <outlet property="travelTalkFriendNameSearchTextField" destination="WO0-b1-NLB" id="lGq-I0-q41"/>
+                        <outlet property="travelTalkSearchBar" destination="Oxi-NQ-P6k" id="Po1-EB-Szg"/>
                         <outlet property="travelTalkTableView" destination="oZX-Ra-1eq" id="zpP-gH-dcJ"/>
                     </connections>
                 </viewController>
