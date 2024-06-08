@@ -20,13 +20,13 @@ struct Lotto: Decodable {
     let drwtNo5: Int
     let drwtNo6: Int
     let bnusNo: Int
-    let recentDrwtNo: Int
 }
 
 
 class ViewController: UIViewController {
-
+    
     let searchLottoRoundTextField = UITextField()
+    let roundPickerView = UIPickerView()
     
     let lottoWinnerNumberInfoLabel = UILabel()
     let lottoDrawLotsDateLabel = UILabel()
@@ -42,22 +42,20 @@ class ViewController: UIViewController {
     let plusLabel = UILabel()
     let bonusLabel = UILabel()
     
-    let searchLottoRoundResultPicker = UIPickerView()
-    
-    var DrwNoMin: Int = 1
-    var recentDrwNo: Int = 1122
-    
-    var allround = Array(1...1122)
+    var allround: [Int] = Array(1...1122)
+    var selectedRound: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchLottoRoundResultPicker.delegate = self
-        searchLottoRoundResultPicker.dataSource = self
         configureHierarchy()
         configureLayout()
         configureUI()
-        getLottoData()
+        
+        roundPickerView.delegate = self
+        roundPickerView.dataSource = self
+        
+        searchLottoRoundTextField.inputView = roundPickerView
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,7 +69,7 @@ class ViewController: UIViewController {
         plusLabel.layer.cornerRadius = plusLabel.frame.width / 2
         bonusWinningNumberLabel.layer.cornerRadius = firstWinningNumberLabel.frame.width / 2
     }
-
+    
     func configureHierarchy() {
         
         view.addSubview(searchLottoRoundTextField)
@@ -88,9 +86,9 @@ class ViewController: UIViewController {
         view.addSubview(plusLabel)
         view.addSubview(bonusWinningNumberLabel)
         view.addSubview(bonusLabel)
-//        view.addSubview(searchLottoRoundResultPicker)
+        //        view.addSubview(searchLottoRoundResultPicker)
     }
-
+    
     func configureLayout() {
         
         searchLottoRoundTextField.snp.makeConstraints { make in
@@ -194,7 +192,7 @@ class ViewController: UIViewController {
         lottoDrawLotsDateLabel.textColor = .black
         lottoDrawLotsDateLabel.font = .systemFont(ofSize: 12)
         
-//        roundWinningResultLabel.text = "913회 당첨결과" // 회차 불러오기
+        
         roundWinningResultLabel.font = .boldSystemFont(ofSize: 20)
         
         firstWinningNumberLabel.textAlignment = .center
@@ -232,53 +230,63 @@ class ViewController: UIViewController {
         bonusLabel.text = "보너스"
         bonusLabel.textAlignment = .center
         bonusLabel.font = .systemFont(ofSize: 15)
-
+        
     }
-    
-    func getLottoData() {
-        
-        let url = "\(APIURL.lottoURL)"
-        
-        
-        AF.request(url).responseDecodable(of: Lotto.self) { response in
+        func getLottoData(for round: Int) {
+            let urlString = "\(APIURL.lottoURL)\(round)"
+               
+               print("Requesting URL: \(urlString)")
+               
+               guard let url = URL(string: urlString) else {
+                   print("Invalid URL")
+                   return
+               }
             
-            switch response.result {
-            case .success(let value):
-                self.roundWinningResultLabel.text = "\(value.drwNo)회 당첨결과"
-                self.lottoDrawLotsDateLabel.text = "\(value.drwNoDate) 추첨"
-                self.firstWinningNumberLabel.text = "\(value.drwtNo1)"
-                self.secondWinningNumberLabel.text = "\(value.drwtNo2)"
-                self.thirdWinningNumberLabel.text = "\(value.drwtNo3)"
-                self.fourthWinningNumberLabel.text = "\(value.drwtNo4)"
-                self.fifthWinningNumberLabel.text = "\(value.drwtNo5)"
-                self.sixthWinningNumberLabel.text = "\(value.drwtNo6)"
-                self.bonusWinningNumberLabel.text = "\(value.bnusNo)"
-                self.recentDrwNo = value.recentDrwtNo
-            case.failure(let error):
-                print(error)
-                self.roundWinningResultLabel.text = "회차를 불러올 수 없습니다."
+            
+            AF.request(url).responseDecodable(of: Lotto.self) { response in
+                
+                switch response.result {
+                case .success(let value):
+                    self.roundWinningResultLabel.text = "\(value.drwNo)회 당첨결과"
+                    self.lottoDrawLotsDateLabel.text = "\(value.drwNoDate) 추첨"
+                    self.firstWinningNumberLabel.text = "\(value.drwtNo1)"
+                    self.secondWinningNumberLabel.text = "\(value.drwtNo2)"
+                    self.thirdWinningNumberLabel.text = "\(value.drwtNo3)"
+                    self.fourthWinningNumberLabel.text = "\(value.drwtNo4)"
+                    self.fifthWinningNumberLabel.text = "\(value.drwtNo5)"
+                    self.sixthWinningNumberLabel.text = "\(value.drwtNo6)"
+                    self.bonusWinningNumberLabel.text = "\(value.bnusNo)"
+                    
+                case.failure(let error):
+                    print(error)
+                    self.roundWinningResultLabel.text = "회차를 불러올 수 없습니다."
+                }
+                
+                
             }
-            
-            
+            print("2222")
         }
-        print("2222")
     }
     
     
-}
-
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return allround.count
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return "\(allround[row])회"
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            selectedRound = allround[row]
+            if let selectedRound = selectedRound {
+                searchLottoRoundTextField.text = "\(selectedRound)"
+                getLottoData(for: selectedRound)
+            }
+        }
     }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return recentDrwNo
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(allround[row])"
-    }
-    
-}
