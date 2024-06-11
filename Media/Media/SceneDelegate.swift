@@ -18,7 +18,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let mainViewController = ViewController()
         
-        window?.rootViewController = mainViewController
+        let tabBarCon = UITabBarController()
+        
+        tabBarCon.tabBar.tintColor = .blue
+        tabBarCon.tabBar.backgroundColor = .white
+        
+        let movieVC = UINavigationController(rootViewController: MovieVeiwController())
+        movieVC.tabBarItem = UITabBarItem(title: "영화목록", image: UIImage(systemName: "movieclapper"), tag: 0)
+        
+        let movieSearchVC = UINavigationController(rootViewController: MovieSearchTableViewController())
+        movieSearchVC.tabBarItem = UITabBarItem(title: "영화검색", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        
+        tabBarCon.viewControllers = [movieVC, movieSearchVC]
+        
+        
+        
+        window?.rootViewController = tabBarCon
         window?.makeKeyAndVisible()
         
     }
