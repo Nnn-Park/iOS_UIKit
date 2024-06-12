@@ -9,9 +9,10 @@ import Foundation
 
 struct MovieDB: Decodable {
     let page: Int
-    let results: [Result]
+    var results: [Result]
 }
 
 struct Result: Decodable {
     let poster_path: String?
+    let id: Int
 }

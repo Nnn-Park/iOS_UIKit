@@ -27,11 +27,13 @@ class MovieSearchCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func makeImage(data: String) {
+    func makeImage(data: String?) {
         
-        let url = URL(string: data)
-        imageView.kf.setImage(with: url)
-
+        if let data,
+           let url = URL(string: data) {
+            imageView.kf.setImage(with: url)
+        }
+        
     }
     
     required init?(coder: NSCoder) {

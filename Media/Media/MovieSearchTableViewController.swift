@@ -16,10 +16,10 @@ class MovieSearchTableViewController: UITableViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     let searchBar = UISearchBar()
     
-    private let movieURL = "https://api.themoviedb.org/3/trending/movie/week?api_key=4dbbc90704015bec654d418b7a57bba8"
-    private let imageURL = "https://image.tmdb.org/t/p/w500"
-    private var movieDB: [MovieDB] = []
+    private let movieURL = "https://api.themoviedb.org/3/search/movie?api_key=4dbbc90704015bec654d418b7a57bba8"
+    private var movieDB: MovieDB = MovieDB(page: 1, results: [])
     var page = 1
+    var search = ""
     
     static func collectionViewLayout() -> UICollectionViewLayout {
         
@@ -51,7 +51,6 @@ class MovieSearchTableViewController: UITableViewController {
         
         configureLayout()
         configureUI()
-        fetchMovies()
     }
     
     func configureLayout() {
@@ -76,9 +75,9 @@ class MovieSearchTableViewController: UITableViewController {
         
     }
     
-    func fetchMovies() {
+    func fetchMovies(query: String) {
         
-        let urlString = "\(movieURL)&page=\(page)"
+        let urlString = "\(movieURL)&query=\(query)&page=\(page)"
         
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
@@ -88,11 +87,16 @@ class MovieSearchTableViewController: UITableViewController {
         AF.request(url, method: .get).responseDecodable(of: MovieDB.self) { response in
             switch response.result {
             case .success(let value):
-                self.movieDB.append(value)
+                dump(value.results)
+                if self.page == 1 {
+                    self.movieDB.results = value.results
+                } else {
+                    self.movieDB.results.append(contentsOf: value.results)
+                }
                 self.collectionView.reloadData()
                 
                 self.page += 1
-                
+                print(self.page)
             case .failure(let error):
                 print(error)
             }
@@ -107,7 +111,7 @@ extension MovieSearchTableViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return movieDB.flatMap { $0.results }.count
+        return movieDB.results.count
     }
     
     
@@ -115,14 +119,14 @@ extension MovieSearchTableViewController: UICollectionViewDelegate, UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieSearchCollectionViewCell.identifier, for: indexPath) as! MovieSearchCollectionViewCell
         
-        let results = movieDB.flatMap { $0.results }
         
-        if let posterPath = results[indexPath.item].poster_path {
-            let imageURL = "\(imageURL)\(posterPath)"
-            cell.makeImage(data: imageURL)
-        } else {
-            cell.imageView.image = nil
-        }
+        
+        let result = movieDB.results[indexPath.row]
+        let imageString = "https://image.tmdb.org/t/p/w780" + (result.poster_path ?? "/pUd1FYQb5r55RqXpx08dnCbP1fs.jpg")
+        
+        cell.makeImage(data: imageString)
+        
+        
         
         return cell
     }
@@ -134,7 +138,7 @@ extension MovieSearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         page = 1
-        fetchMovies()
+        fetchMovies(query: searchBar.text!)
         searchBar.resignFirstResponder()
     }
 }
@@ -143,11 +147,14 @@ extension MovieSearchTableViewController: UICollectionViewDataSourcePrefetching 
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         
-        let maxRow = indexPaths.map { $0.row }.max() ?? 0
-        
-        if maxRow > movieDB.flatMap({ $0.results }).count - 10 {
-            page += 1
-            fetchMovies()
+        for item in indexPaths {
+            
+            if movieDB.results.count - 2 == item.row {
+
+                fetchMovies(query: searchBar.text!)
+            }
+            print(item.row)
+            print(page)
         }
     }
     

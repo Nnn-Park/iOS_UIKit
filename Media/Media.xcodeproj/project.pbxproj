@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE813D4E2C19A192008DD7E6 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE813D4D2C19A192008DD7E6 /* CreditViewController.swift */; };
 		FEC468BF2C1847420081FE97 /* MovieSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC468BE2C1847420081FE97 /* MovieSearchTableViewController.swift */; };
 		FEC468C12C1848A80081FE97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC468C02C1848A80081FE97 /* ViewController.swift */; };
 		FEC468C32C18634E0081FE97 /* MovieSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC468C22C18634E0081FE97 /* MovieSearchCollectionViewCell.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE813D4D2C19A192008DD7E6 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		FEC468BE2C1847420081FE97 /* MovieSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchTableViewController.swift; sourceTree = "<group>"; };
 		FEC468C02C1848A80081FE97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FEC468C22C18634E0081FE97 /* MovieSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				FEC468BE2C1847420081FE97 /* MovieSearchTableViewController.swift */,
 				FEC468C22C18634E0081FE97 /* MovieSearchCollectionViewCell.swift */,
 				FEC468C42C1896200081FE97 /* MovieDBModels.swift */,
+				FE813D4D2C19A192008DD7E6 /* CreditViewController.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				FEC468C32C18634E0081FE97 /* MovieSearchCollectionViewCell.swift in Sources */,
 				FEECC6DF2C17119F00E1D768 /* APIKey.swift in Sources */,
 				FEC468BF2C1847420081FE97 /* MovieSearchTableViewController.swift in Sources */,
+				FE813D4E2C19A192008DD7E6 /* CreditViewController.swift in Sources */,
 				FEECC6C72C16E0B700E1D768 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

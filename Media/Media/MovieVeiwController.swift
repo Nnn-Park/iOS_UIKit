@@ -107,6 +107,10 @@ class MovieVeiwController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+    
 }
 
 class MediaCell: UITableViewCell {
