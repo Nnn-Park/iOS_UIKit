@@ -31,9 +31,13 @@ class ViewController: UIViewController {
     @IBOutlet var recentresultButton: UIButton!
     @IBOutlet var removeRecentResultButton: UIButton!
     
+    let viewModel = ViewModel()
+    
     var height = 0
     var weight = 0
     var nickname = ""
+    var bmiResult: Double = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +82,19 @@ class ViewController: UIViewController {
         
         removeRecentResultButton.setTitle("최신 결과 삭제", for: .normal)
         removeRecentResultButton.setTitleColor(.lightGray, for: .normal)
+        bindData()
     }
+    
+    func bindData() {
+        
+        viewModel.outputBMIResult.bind { value in
+            print(value)
+            self.bmiResult = value
+            print("VC == \(self.bmiResult)")
+        }
+        
+    }
+    
     
     @IBAction func keyBoardDismiss(_ sender: UITapGestureRecognizer) {
         
@@ -88,25 +104,28 @@ class ViewController: UIViewController {
     
     @IBAction func heightTextFieldEditingDidEnd(_ sender: UITextField) {
         
-        if sender.text != nil {
-            height = Int(sender.text!)!
-        } else {
-            height = 0
-        }
-        print(height)
-        UserDefaults.standard.set(height, forKey: "height")
+        viewModel.inputHeight.value = Int(sender.text ?? "")
+        
+//        if sender.text != nil {
+//            height = Int(sender.text!)!
+//        } else {
+//            height = 0
+//        }
+//        print(height)
+//        UserDefaults.standard.set(height, forKey: "height")
     }
     
     
     @IBAction func weightTextFieldEditingDidEnd(_ sender: UITextField) {
         
-        if sender.text != nil {
-            weight = Int(sender.text!)!
-        } else {
-            weight = 0
-        }
-        print(weight)
-        UserDefaults.standard.set(weight, forKey: "weight")
+        viewModel.inputWeight.value = Int(sender.text ?? "")
+//        if sender.text != nil {
+//            weight = Int(sender.text!) ?? 0
+//        } else {
+//            weight = 0
+//        }
+//        print(weight)
+//        UserDefaults.standard.set(weight, forKey: "weight")
     }
     
     @IBAction func nicknameTextFieldEditingDidEnd(_ sender: UITextField) {
@@ -122,7 +141,7 @@ class ViewController: UIViewController {
     
     @IBAction func randomCalculateButtonDidTapped(_ sender: UIButton) {
         
-        alertRandomResult()
+//        alertRandomResult()
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
@@ -142,13 +161,7 @@ class ViewController: UIViewController {
     }
     
     
-    func calculateBMI(_ height: Int, _ weight: Int) -> Double {
-        let heightInMeters = Double(height) / 100.0
-        let bmiResult = Double(weight) / (heightInMeters * heightInMeters)
-        print(bmiResult)
-        UserDefaults.standard.set(bmiResult, forKey: "BMIResult")
-        return bmiResult
-    }
+    
     
     
     func makeRandomHeight() -> Int {
@@ -167,7 +180,7 @@ class ViewController: UIViewController {
     
     func alertResult() {
         
-        let bmiResult = calculateBMI(height, weight)
+//        let bmiResult = viewModel.outputBMIResult.value
         let formattedBMI = String(format: "%.1f", bmiResult)
         let alret = UIAlertController(title: "\(nickname)님의 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
         let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -177,20 +190,20 @@ class ViewController: UIViewController {
         present(alret, animated: true, completion: nil)
     }
     
-    func alertRandomResult() {
-        
-        let bmiResult = calculateBMI(makeRandomHeight(), makeRandomWeight())
-        let formattedBMI = String(format: "%.1f", bmiResult)
-        let alret = UIAlertController(title: "랜덤 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alret.addAction(yes)
-        
-        present(alret, animated: true, completion: nil)
-    }
+//    func alertRandomResult() {
+//        
+//        let bmiResult = calculateBMI(makeRandomHeight(), makeRandomWeight())
+//        let formattedBMI = String(format: "%.1f", bmiResult)
+//        let alret = UIAlertController(title: "랜덤 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
+//        let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
+//        
+//        alret.addAction(yes)
+//        
+//        present(alret, animated: true, completion: nil)
+//    }
     
     func alertRecentResult() {
-        let bmiResult = UserDefaults.standard.double(forKey: "BMIResult")
+//        let bmiResult = UserDefaults.standard.double(forKey: "BMIResult")
         let formattedBMI = String(format: "%.1f", bmiResult)
         let alret = UIAlertController(title: "가장 최근의 BMI는 \(formattedBMI)입니다.", message: "", preferredStyle: .alert)
         let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -201,7 +214,7 @@ class ViewController: UIViewController {
     }
     
     func alertRemoveRecentResult() {
-        UserDefaults.standard.removeObject(forKey: "BMIResult")
+//        UserDefaults.standard.removeObject(forKey: "BMIResult")
         let alret = UIAlertController(title: "가장 최근의 BMI결과가 삭제되었습니다.", message: "", preferredStyle: .alert)
         let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
         
