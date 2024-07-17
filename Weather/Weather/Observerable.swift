@@ -9,22 +9,22 @@ import Foundation
 
 class Observerable<T> {
     
-    var closure: (() -> Void)?
+    var closure: ((T) -> Void)?
     
-    var value: String {
+    var value: T {
         didSet {
             print("didSet")
-            closure?()
+            closure?(value)
         }
     }
     
-    init(_ value: String) {
+    init(_ value: T) {
         self.value = value
     }
     
-    func bind(value: @escaping () -> Void) {
-        value()
-        closure = value
+    func bind(_ closure: @escaping (T) -> Void) {
+        closure(value)
+        self.closure = closure
     }
     
 }

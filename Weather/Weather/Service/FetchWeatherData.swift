@@ -8,14 +8,17 @@
 import UIKit
 import Alamofire
 
-struct FetchWeatherData {
+final class FetchWeatherData {
+    
+    static let shared = FetchWeatherData()
+    
     private let apiKey = "e02a5d98726ce802caa73039f0b7f4fc"
     
-    func fetchData(cityName: String, completionHandler: @escaping (Weather?, AFError?) -> Void) {
-        let url = "http://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=\(apiKey)"
+    func getData(cityName: String, completionHandler: @escaping (WeatherResponse?, AFError?) -> Void) {
+        let url = "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=\(apiKey)"
         
         DispatchQueue.global().async {
-            AF.request(url).responseDecodable(of: Weather.self) { response in
+            AF.request(url).responseDecodable(of: WeatherResponse.self) { response in
                 switch response.result {
                 case .success(let data):
                     print("SUCESS")

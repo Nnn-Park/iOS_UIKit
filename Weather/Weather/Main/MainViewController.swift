@@ -10,6 +10,8 @@ import SnapKit
 
 class MainViewController: BaseViewController {
 
+    let viewModel = MainViewModel()
+    
     private lazy var backgroundView = {
         let view = UIView()
         
@@ -23,6 +25,14 @@ class MainViewController: BaseViewController {
         
         return label
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.inputWeather.value = ()
+        viewModel.outputData.bind { weather in
+            print("SUCCESS \(weather)")
+        }
+    }
     
 
     override func configureHierarchy() {
@@ -48,6 +58,7 @@ class MainViewController: BaseViewController {
     override func configureView() {
         backgroundView.backgroundColor = .blue
         weatherLabel.text = "afdfaf"
+        
     }
     
 }
