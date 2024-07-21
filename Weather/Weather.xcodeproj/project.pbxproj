@@ -24,6 +24,7 @@
 		FE56FFF82C43BD7000F51898 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56FFF72C43BD7000F51898 /* MainViewModel.swift */; };
 		FE56FFFB2C43C2F700F51898 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FE56FFFA2C43C2F700F51898 /* Kingfisher */; };
 		FE56FFFE2C43C32400F51898 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56FFFD2C43C32400F51898 /* WeatherModel.swift */; };
+		FED676E62C4CF5C000770EC0 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED676E52C4CF5C000770EC0 /* MainCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		FE56FFF52C43BD0700F51898 /* Observerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observerable.swift; sourceTree = "<group>"; };
 		FE56FFF72C43BD7000F51898 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FE56FFFD2C43C32400F51898 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FED676E52C4CF5C000770EC0 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				FE56FFD12C43BA9E00F51898 /* MainViewController.swift */,
+				FED676E52C4CF5C000770EC0 /* MainCollectionViewCell.swift */,
 				FE1969BF2C4797DB001A9948 /* ViewModel */,
 			);
 			path = Main;
@@ -238,6 +241,7 @@
 				FE5600012C43E7E000F51898 /* FetchWeatherData.swift in Sources */,
 				FE56FFCE2C43BA9E00F51898 /* AppDelegate.swift in Sources */,
 				FE56FFEF2C43BC2E00F51898 /* BaseTableViewCell.swift in Sources */,
+				FED676E62C4CF5C000770EC0 /* MainCollectionViewCell.swift in Sources */,
 				FE56FFD02C43BA9E00F51898 /* SceneDelegate.swift in Sources */,
 				FE56FFFE2C43C32400F51898 /* WeatherModel.swift in Sources */,
 				FE56FFEE2C43BC2E00F51898 /* BaseCollectionViewCell.swift in Sources */,

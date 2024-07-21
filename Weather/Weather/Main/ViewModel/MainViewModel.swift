@@ -9,18 +9,22 @@ import Foundation
 
 class MainViewModel {
     
-    var outputData: Observerable<WeatherResponse?> = Observerable(nil)
-    
     var inputWeather: Observerable<Void?> = Observerable(nil)
     
-    var outputWeatherTitle: Observerable<String?> = Observerable(nil)
+    var outputData: Observerable<WeatherResponse?> = Observerable(nil)
+    var outputWeatherInfo: Observerable<[WeatherInfo]> = Observerable([])
+    var outputCityName: Observerable<String> = Observerable("")
+    
     
     init() {
-        inputWeather.bind {_ in 
+        inputWeather.bind { _ in
             FetchWeatherData.shared.getData(cityName: "seoul") { weather, error in
-                self.outputData.value = weather
+                self.outputCityName.value = weather?.city.name ?? "000"
+                self.outputWeatherInfo.value = weather?.list ?? []
             }
         }
+        
+        
     }
     
     
